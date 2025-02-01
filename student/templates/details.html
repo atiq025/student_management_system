@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Detail Student
+{% endblock %}
+
+{% block content %}
+<!-- Display Messages -->
+{% if messages %}
+    <div class="mt-3">
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<!-- Student Details Section -->
+<div class="mb-3">
+    <h2 class="mt-4">Student Details</h2>
+
+    <!-- Action Buttons -->
+    <div class="text-end">
+        <a href="{% url 'student-update' student.pk %}" class="btn btn-sm btn-warning">
+            <i class="bi bi-pencil-square"></i> Edit
+        </a>
+        <a href="{% url 'student-delete' student.pk %}" class="btn btn-sm btn-danger">
+            <i class="bi bi-trash"></i> Delete
+        </a>
+        <a href="{% url 'home' %}" class="btn btn-sm btn-secondary">
+            <i class="bi bi-arrow-left"></i> Back to List
+        </a>
+    </div>
+</div>
+<hr>
+
+<!-- Student Details Table -->
+<table class="table table-bordered mt-3">
+    <tr>
+        <th>Name</th>
+        <td>{{ student.name }}</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>{{ student.email }}</td>
+    </tr>
+    <tr>
+        <th>Phone</th>
+        <td>{{ student.phone }}</td>
+    </tr>
+    <tr>
+        <th>Course</th>
+        <td>{{ student.course }}</td>
+    </tr>
+</table>
+{% endblock %}

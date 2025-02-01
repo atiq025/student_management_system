@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if object %}
+        Edit Student
+    {% else %}
+        Add Student
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <!-- Form Section -->
+    <h2 class="mt-4">
+        {% if object %}
+            Edit Student
+        {% else %}
+            Add Student
+        {% endif %}
+    </h2>
+    {% include 'components/form.html' %}
+{% endblock %}
